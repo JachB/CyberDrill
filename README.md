@@ -134,11 +134,11 @@ sequenceDiagram
 
 ## Roadmap (post-PoC)
 
-1. **Template library** — 50+ hand-craftowanych kanw z real-world ataków OT + AI customizuje pod kontekst (zamiast generować od zera per request)
-2. **Personalizacja per pracownik** — integracja LDAP/AD, OSINT (LinkedIn API), historia kliknięć, risk score
-3. **Multi-channel** — SMS phishing, Microsoft Teams, voice clone (deepfake audio)
-4. **Credential capture mode** — fake login z template library M365/Okta/ADFS (opcjonalny tryb zaawansowany)
-5. **Threat intel feed** — VirusTotal API, abuse.ch, automatyczna replikacja świeżych ataków OT jako scenariuszy
+1. **Biblioteka szablonów** — gotowe scenariusze oparte na prawdziwych atakach OT, które AI dostosowuje do klienta zamiast generować od zera przy każdym żądaniu
+2. **Spersonalizowane ataki per pracownik** — integracja z Active Directory, historia kliknięć i indywidualny wskaźnik ryzyka dla każdego użytkownika
+3. **Wiele kanałów ataku** — symulacje phishingu przez SMS, Microsoft Teams i fałszywe połączenia głosowe z deepfake'iem głosu przełożonego
+4. **Fałszywa strona logowania** — po kliknięciu pracownik trafia na podrobioną stronę logowania (M365, Okta) — opcjonalny tryb dla zaawansowanych kampanii
+5. **Automatyczne śledzenie nowych zagrożeń** — integracja z bazami threat intelligence, która automatycznie tworzy scenariusze na podstawie świeżych ataków OT wykrytych w sieci
 
 ---
 
