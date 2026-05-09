@@ -116,18 +116,18 @@ sequenceDiagram
 
 ## Znane ograniczenia (zakres PoC)
 
-| Ograniczenie | Szczegół |
+| Ograniczenie | Co to znaczy w praktyce |
 |---|---|
-| **Brak autoryzacji** | Tabela `campaigns` jest publiczna dla anon (RLS off) — każdy z tokenem może odczytać kampanię. Świadoma decyzja dla PoC. |
-| **Dashboard = seed data** | Dane "Acme Industrial Sp. z o.o." (metryki, trend, działy) są statyczne w `lib/dashboard-data.ts`. Aplikacja nie agreguje danych z prawdziwych kampanii na skalę. |
-| **Hardcoded polski** | Wszystkie stringi UI w `lib/copy.ts`. Przygotowane strukturalnie pod next-intl, ale i18n nie jest zainstalowane. |
-| **Desktop-first** | Mobile odpada do single-column layoutu, nie jest polerowany. |
-| **Brak walidacji `.env`** | Aplikacja nie weryfikuje poprawności kluczy API przy starcie — może crashować w połowie generowania przy błędnych kluczach. |
-| **Brak fallbacku AI** | Gdy Gemini nie odpowie, użytkownik widzi komunikat błędu bez możliwości retry. Pre-warm endpointu przed demo zmniejsza ryzyko cold startu. |
-| **PDF browser-side** | Roboto font (~700KB) jest bundlowany po stronie klienta. W produkcji PDF powinien być generowany server-side. |
-| **Brak rate limitingu** | `/api/generate` nie ma throttlingu — PoC zakłada kontrolowane środowisko demo. |
-| **Click-only mode** | Industry standard (KnowBe4 default): kliknięcie = "got phished". Credential capture (fake login) to opcja Tier B — świadoma decyzja, w roadmapie. |
-| **Gemini cold start** | Pierwsze wywołanie Edge + Gemini może trwać 15–30s. Pre-warm przed demo jest wymagany. |
+| **Brak logowania** | Baza kampanii jest otwarta — ktokolwiek zna token kampanii, może odczytać jej dane. Celowa decyzja, żeby PoC był prosty w obsłudze. |
+| **Dashboard na fikcyjnych danych** | Wykresy i statystyki na dashboardzie CISO dotyczą wymyślonej firmy "Acme Industrial Sp. z o.o." — aplikacja nie zbiera jeszcze danych z prawdziwych kampanii w skali. |
+| **Tylko po polsku** | Cały interfejs jest po polsku i nie ma przełącznika języka. Struktura jest przygotowana pod wielojęzyczność, ale nie jest to priorytet PoC. |
+| **Zoptymalizowany pod komputer** | Na telefonie strona działa, ale nie jest dopracowana wizualnie — to jest demo na jednym ekranie, nie aplikacja mobilna. |
+| **Brak sprawdzania konfiguracji przy starcie** | Jeśli klucze API w pliku `.env` są błędne, aplikacja nie poinformuje o tym od razu — błąd pojawi się dopiero w trakcie generowania scenariusza. |
+| **Brak automatycznego retry** | Gdy Gemini nie odpowie (np. przy cold starcie), użytkownik widzi komunikat błędu bez możliwości ponowienia. Uruchomienie endpointu 30s przed demo eliminuje to ryzyko. |
+| **Raport PDF generowany w przeglądarce** | Font potrzebny do polskich znaków (~700 KB) jest ładowany po stronie użytkownika. W wersji produkcyjnej PDF powinien powstawać na serwerze. |
+| **Brak ochrony przed nadużyciami** | Endpoint generujący scenariusze nie ma limitów zapytań — PoC zakłada kontrolowane środowisko demo, a nie ruch publiczny. |
+| **Kliknięcie = złapany** | Symulacja kończy się w momencie kliknięcia linku — tak działa większość platform tego typu (m.in. KnowBe4 w trybie domyślnym). Wariant z fałszywą stroną logowania jest zaplanowany w roadmapie. |
+| **Zimny start AI** | Pierwsze wywołanie Gemini po dłuższej przerwie może trwać 15–30 sekund. Przed demo warto "rozgrzać" endpoint wysyłając jedno zapytanie testowe. |
 
 ---
 
