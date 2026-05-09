@@ -14,7 +14,7 @@ PoC zbudowany jako zadanie stażowe dla **Seargin** (Gdańsk).
 - **82,6% maili phishingowych** jest generowanych przez AI — 4,5× skuteczniejszy niż tradycyjny phishing *(KnowBe4 Phishing Threat Trends 2025)*
 - **UKSC 2.0** obowiązuje od 3 kwietnia 2026 r.: kary do **100 mln PLN** + osobista odpowiedzialność finansowa zarządu do **300% wynagrodzenia miesięcznego**
 
-Istniejące platformy (KnowBe4, Hoxhunt, Keepnet) opierają się na statycznych bibliotekach szablonów — ich treści OT są pisane przez copywriterów, nie generowane w czasie rzeczywistym pod konkretną rolę i aktualną podatność CVE. Inżynier obsługujący SIMATIC S7-1500 i WinCC nie odnajduje się w szablonie "Twoje konto Microsoft zostało zablokowane".
+Istniejące platformy (KnowBe4, Hoxhunt, Keepnet) skupiają się głównie na środowiskach biurowych IT. Nawet jeśli oferują pojedyncze szablony przemysłowe, żadna z nich nie generuje scenariuszy dynamicznie — pod konkretny model PLC, aktualną podatność CVE i realia polskiego rynku (UKSC 2.0). Inżynier obsługujący SIMATIC S7-1500 dostaje mail o zablokowanym koncie Microsoft.
 
 ---
 

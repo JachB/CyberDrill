@@ -106,7 +106,7 @@
 | Czas wdrożenia | Tygodnie | Dni | Dni | **30 minut** |
 
 **Co mówisz:**
-> "KnowBe4 ma 23 000 szablonów i własne AI — AIDA — które dobiera który szablon wysłać do której osoby. To jest adaptacyjna selekcja. Ale treść tych szablonów dalej piszą copywriterzy raz i leżą przez lata. Operator hali produkcyjnej dostaje mail o zablokowanym koncie UPS — nie odnajduje się w tym.
+> "KnowBe4 ma 23 000 szablonów i własne AI — AIDA — które dobiera który szablon wysłać do której osoby. Ma nawet kilka szablonów z kategorii SCADA. Ale żadna z tych platform nie generuje scenariusza dynamicznie — pod konkretny model PLC który stoi w tej hali, pod podatność CVE sprzed tygodnia, pod realia UKSC 2.0. Operator dostaje generyczny mail, nie atak który wygląda jak wewnętrzna komunikacja jego firmy.
 >
 > Hoxhunt robi AI i gamifikację, ale skupia się na zachowaniach biurowych — nie ma głębokiego OT ani kontekstu UKSC 2.0.
 >
