@@ -57,17 +57,17 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```mermaid
 graph LR
   U[Pracownik] -->|/generate| FE[Next.js 16 App Router]
-  FE -->|POST /api/generate\nEdge Runtime| EDGE[Edge Function]
+  FE -->|POST /api/generate| EDGE[Edge Function]
   EDGE -->|generateContentStream| GEMINI[Gemini Flash API]
   GEMINI -.->|SSE chunks| EDGE
-  EDGE -->|line-prefixed parser\nMETA/BODY/INDICATOR/QUIZ/EDU| EVENTS[StreamEvents]
+  EDGE -->|parser META/BODY/INDICATOR/QUIZ/EDU| EVENTS[StreamEvents]
   EVENTS -.->|SSE| FE
   EDGE -->|INSERT campaign + token| DB[(Supabase Postgres)]
   U -->|klik CTA w podglądzie| TRACK[/api/track]
   TRACK -->|UPDATE clicked_at| DB
-  TRACK -->|302 redirect| PHISHED[/phished\nannotated overlay + quiz + lekcja]
-  DB -.->|Realtime WebSocket| FEED[LiveFeed na /generate i /dashboard]
-  DASH[/dashboard — widok CISO] --> PDF[jsPDF NIS2 PDF\nArt. 21.2g]
+  TRACK -->|302 redirect| PHISHED[/phished overlay + quiz + lekcja]
+  DB -.->|Realtime WebSocket| FEED[LiveFeed na /dashboard]
+  DASH[/dashboard CISO] --> PDF[jsPDF NIS2 PDF Art.21.2g]
 ```
 
 ### Przepływ danych — sekwencja
