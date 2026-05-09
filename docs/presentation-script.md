@@ -303,7 +303,7 @@ Jeśli Gemini nie odpowie w 15s:
 |---|---|---|
 | +64% ataków ransomware OT | Dragos 2026 | Slajd 1 |
 | 3 300 firm przemysłowych | Dragos 2026 | Slajd 1 |
-| 82,6% maili z AI | KnowBe4/Keepnet 2025 | Slajd 1 |
+| 82,6% maili z AI | KnowBe4 Phishing Threat Trends 2025 | Slajd 1 |
 | 4,5× skuteczność AI phishingu | KnowBe4 2025 | Slajd 1 |
 | 3 kwietnia 2026 — UKSC 2.0 | Prawo.pl / SecIQ | Slajd 1 |
 | 300% wynagrodzenia — kara kierownika | UKSC 2.0 | Slajd 1 |
