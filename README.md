@@ -1,6 +1,6 @@
 # CyberDrill
 
-**Live demo:** https://cyberdrill-rho.vercel.app/ · **Kod:** https://github.com/JachB/CyberDrill
+**Live demo:** https://cyberdrill-rho.vercel.app/ · 
 
 > Phishing który wygląda jak prawdziwy atak. Bo nim jest.
 
