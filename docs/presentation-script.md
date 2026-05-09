@@ -42,7 +42,7 @@
 **[screenshot aplikacji — /generate z budującym się mailem]**
 
 **Co mówisz:**
-> "CyberDrill w dwóch zdaniach: AI generuje scenariusz phishingowy z terminologią tej konkretnej branży i tej konkretnej roli — nie copywriter raz na rok, ale model językowy w czasie rzeczywistym pod aktualną podatność CVE. Pracownik który kliknie dostaje natychmiastową edukację i quiz, a CISO dostaje raport NIS2 jednym kliknięciem.
+> "CyberDrill w dwóch zdaniach: AI generuje scenariusz phishingowy z terminologią tej konkretnej branży i tej konkretnej roli — nie copywriter raz na rok, ale model językowy w czasie rzeczywistym pod podatności charakterystyczne dla danej sieci OT. Pracownik który kliknie dostaje natychmiastową edukację i quiz, a CISO dostaje raport NIS2 jednym kliknięciem.
 >
 > Zaraz to pokażę na żywo."
 
@@ -96,11 +96,11 @@
 
 **Nagłówek:** Dlaczego nie KnowBe4?
 
-| Cecha | KnowBe4 | Hoxhunt | Keepnet OT-SAT | **CyberDrill** |
+| Cecha | KnowBe4 | Hoxhunt | Keepnet | **CyberDrill** |
 |---|---|---|---|---|
-| Scenariusze | Statyczna (23k+) + AI selekcja (AIDA) | Adaptacyjna AI | Statyczna (OT) | **Generatywna AI — treść od zera** |
-| Język polski | Tłumaczony mechanicznie | Natywny AI | Ograniczony | **Natywny (PL kontekst)** |
-| Kontekst IEC 62443 | Ogólny | Brak | Częściowy | **Wbudowany** |
+| Scenariusze | Duża biblioteka + AI selekcja (AIDA) | Adaptacyjna AI | Gotowe szablony OT | **Generatywna AI — treść od zera** |
+| Dynamiczne pod CVE / model PLC | Nie | Nie | Nie | **Tak** |
+| Język polski | Tłumaczony | Natywny AI | Ograniczony | **Natywny (PL kontekst)** |
 | UKSC 2.0 native | Brak | Brak | Brak | **Wbudowany** |
 | Dokumentacja NIS2 | Ręczna | Regionalna | Standardowa | **Automat PDF Art. 21(g)** |
 | Czas wdrożenia | Tygodnie | Dni | Dni | **30 minut** |
@@ -110,7 +110,7 @@
 >
 > Hoxhunt robi AI i gamifikację, ale skupia się na zachowaniach biurowych — nie ma głębokiego OT ani kontekstu UKSC 2.0.
 >
-> Keepnet OT-SAT jest najbliżej naszej niszy, ale to statyczna biblioteka — nie generuje w locie pod aktualną podatność CVE, nie ma polskiego zakotwiczenia prawnego.
+> Keepnet jest najbliżej naszej niszy, ale to statyczna biblioteka — nie generuje w locie pod podatności charakterystyczne dla danej sieci OT, nie ma polskiego zakotwiczenia prawnego.
 >
 > My jako jedyni: AI generujące w czasie rzeczywistym + polski kontekst UKSC 2.0 + dokumentacja NIS2 jednym kliknięciem."
 
@@ -271,7 +271,7 @@ Next.js 16 · TypeScript · Gemini Flash · Supabase Postgres + Realtime · Verc
 > 1 ekspert OT do walidacji scenariuszy."
 
 **W zamian pilot dostaje:**
-✓ Compliance NIS2 Art. 21(g) udokumentowany w 30 minut
+✓ Dokumentacja kampanii szkoleniowej zgodna z Art. 21(g) — gotowa w 30 minut
 ✓ Mierzalny spadek phish-prone % po 8 tygodniach
 ✓ Raport który ląduje na biurku audytora gotowy
 
