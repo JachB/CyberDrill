@@ -243,20 +243,22 @@ Next.js 16 · TypeScript · Gemini Flash · Supabase Postgres + Realtime · Verc
 
 **Nagłówek:** Znamy ryzyka — mamy odpowiedzi
 
-| Ryzyko | Mitygacja |
+| Ryzyko | Odpowiedź |
 |---|---|
-| AI hallucinations w terminologii OT | Ekspert OT waliduje "złote prompty" + walidator outputu w kodzie |
-| Cold start Gemini (15–30s) | Pre-warm endpoint przed demo / fallback cached scenario |
-| Konkurencja doda AI | First-mover UKSC 2.0 native + switching cost po onboardingu OT |
-| Skalowanie (auth, multi-tenant) | Świadoma decyzja PoC — RLS Supabase, architektura gotowa |
-| AI Act compliance | Szkolenia = low-risk use case, brak wymogów high-risk classification |
+| AI generuje błędne terminy OT | Walidator w kodzie odrzuca scenariusze bez wymaganej liczby terminów branżowych. Ekspert OT zatwierdza "złote prompty" raz — potem AI generuje w ich stylu |
+| Konkurencja też doda AI | KnowBe4 może dodać przycisk AI, ale nie zbuduje w tydzień bazy wiedzy o polskim OT, UKSC 2.0 i terminologii SCADA/PLC — to wymaga ekspertów, nie kodu |
+| Długi cykl sprzedaży B2B | Deadline UKSC 2.0 (kwiecień 2026) skrócił okno decyzyjne CISO. Compliance pod presją = szybsza akceptacja niż typowy enterprise deal |
+| Przepisy o AI (AI Act) | Symulacje phishingowe to edukacja, nie automatyczna decyzja o człowieku — nie wpadamy w kategorię high-risk, brak dodatkowych wymogów |
+| Zaufanie do danych szkoleniowych | Scenariusze są generowane na żądanie, nie przechowywane jako profil pracownika — brak wrażliwych danych osobowych w systemie |
 
 **Co mówisz:**
-> "Największe ryzyko to AI hallucinations — model może wygenerować nieistniejący CVE albo błędny numer normy. Mitygujemy dwutorowo: walidator outputu w kodzie sprawdza minimalną liczbę terminów branżowych, a ekspert OT waliduje próbkę 10% scenariuszy.
+> "Największe ryzyko to AI który wymyśla terminy — model może wygenerować nieistniejący numer normy albo protokół. Rozwiązujemy to dwutorowo: walidator w kodzie odrzuca scenariusze bez wymaganej liczby terminów branżowych, a ekspert OT zatwierdza prompty raz — potem AI generuje setki scenariuszy w jego stylu.
 >
-> Konkurencja — KnowBe4 może dodać AI, ale nie może dodać UKSC 2.0 native i polskiej specyfiki w tydzień. Po onboardingu klienta z Asset Inventory — switching cost jest wysoki.
+> Konkurencja — KnowBe4 może dodać przycisk AI, ale nie zbuduje w tydzień ekspertyzy OT + polskiego kontekstu prawnego. Wygrywamy specjalizacją, nie technologią.
 >
-> AI Act: symulacje phishingowe to low-risk use case edukacyjny. Żadnych wymogów high-risk classification."
+> Sprzedaż B2B enterprise jest zwykle długa, ale UKSC 2.0 skrócił okno decyzyjne — CISO który musi pokazać compliance do końca roku podpisuje szybciej niż w normalnym cyklu zakupowym.
+>
+> AI Act: jesteśmy edukacją, nie systemem który podejmuje decyzje o ludziach — żadnych dodatkowych wymogów."
 
 ---
 
