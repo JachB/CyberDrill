@@ -76,7 +76,7 @@ export default function HomePage() {
           <nav className="hidden md:flex items-center gap-6 text-sm text-[color:var(--color-muted)]">
             <span className="hover:text-[color:var(--color-text)] cursor-default transition-colors">{copy.nav.product}</span>
             <Link href="/showcase" className="hover:text-[color:var(--color-text)] transition-colors">Case study</Link>
-            <span className="hover:text-[color:var(--color-text)] cursor-default transition-colors">{copy.nav.pricing}</span>
+            <a href="#cennik" className="hover:text-[color:var(--color-text)] transition-colors">{copy.nav.pricing}</a>
           </nav>
           <Link
             href="/generate"
@@ -232,7 +232,7 @@ export default function HomePage() {
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true, amount: 0 }}
           className="border-y border-[color:var(--color-border)] bg-[color:var(--color-surface)]"
         >
           <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
@@ -249,7 +249,7 @@ export default function HomePage() {
         <motion.section
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.6, ease }}
           className="max-w-7xl mx-auto px-6 py-10"
         >
@@ -290,13 +290,14 @@ export default function HomePage() {
             variants={stagger}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, amount: 0 }}
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
           >
             {HOW_STEPS.map(({ num, title, desc, Icon }) => (
               <motion.div
                 key={num}
                 variants={fadeUp}
+                whileHover={{ y: -6, transition: { type: 'spring', stiffness: 400, damping: 20 } }}
                 className="rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 space-y-4 card-hover hover:border-[color:var(--color-accent)]"
               >
                 <div className="flex items-center justify-between">
@@ -328,11 +329,11 @@ export default function HomePage() {
               variants={stagger}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: '-60px' }}
+              viewport={{ once: true, amount: 0 }}
               className="grid grid-cols-1 md:grid-cols-2 gap-6"
             >
               {/* CISO */}
-              <motion.div variants={fadeUp} className="rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-bg)] p-8 space-y-4 card-hover hover:border-[color:var(--color-accent)]">
+              <motion.div variants={fadeUp} whileHover={{ y: -5, transition: { type: 'spring', stiffness: 400, damping: 20 } }} className="rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-bg)] p-8 space-y-4 card-hover hover:border-[color:var(--color-accent)]">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-[color:var(--color-accent)]/10 flex items-center justify-center">
                     <BarChart3 className="w-6 h-6 text-[color:var(--color-accent)]" />
@@ -353,7 +354,7 @@ export default function HomePage() {
               </motion.div>
 
               {/* Inżynier OT */}
-              <motion.div variants={fadeUp} className="rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-bg)] p-8 space-y-4 card-hover hover:border-[#F97316]">
+              <motion.div variants={fadeUp} whileHover={{ y: -5, transition: { type: 'spring', stiffness: 400, damping: 20 } }} className="rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-bg)] p-8 space-y-4 card-hover hover:border-[#F97316]">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-[#F97316]/10 flex items-center justify-center">
                     <Factory className="w-6 h-6 text-[#F97316]" />
@@ -391,13 +392,14 @@ export default function HomePage() {
             variants={staggerFast}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-40px' }}
+            viewport={{ once: true, amount: 0 }}
             className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4"
           >
             {INDUSTRY_CARDS.map(({ label, Icon, color, bg, terms }) => (
               <motion.div
                 key={label}
                 variants={fadeUp}
+                whileHover={{ y: -5, scale: 1.03, transition: { type: 'spring', stiffness: 400, damping: 20 } }}
                 className="rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-5 space-y-3 card-hover hover:border-[color:var(--color-accent)] group"
               >
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: bg }}>
@@ -410,12 +412,148 @@ export default function HomePage() {
           </motion.div>
         </section>
 
+        {/* ── Pricing ── */}
+        <section id="cennik" className="bg-[color:var(--color-surface)] border-y border-[color:var(--color-border)]">
+          <div className="max-w-7xl mx-auto px-6 py-20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, ease }}
+              className="text-center space-y-3 mb-12"
+            >
+              <h2 className="text-2xl font-semibold text-[color:var(--color-text)]">Cennik</h2>
+              <p className="text-[color:var(--color-muted)]">Ceny w PLN, rozliczenie roczne per użytkownik. Pierwsze 3 piloty — bezpłatnie.</p>
+            </motion.div>
+
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0 }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start"
+            >
+              {/* Basic */}
+              <motion.div variants={fadeUp} whileHover={{ y: -6, transition: { type: 'spring', stiffness: 400, damping: 20 } }} className="rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-bg)] p-8 space-y-6">
+                <div className="space-y-1">
+                  <p className="text-xs font-semibold text-[color:var(--color-muted)] uppercase tracking-widest">Basic</p>
+                  <div className="flex items-baseline gap-1.5 pt-1">
+                    <span className="text-4xl font-bold text-[color:var(--color-text)]">~200</span>
+                    <span className="text-[color:var(--color-muted)] text-sm">PLN / user / rok</span>
+                  </div>
+                  <p className="text-xs text-[color:var(--color-muted)]">orientacyjnie · netto + VAT 23%</p>
+                </div>
+                <Link
+                  href="/generate"
+                  className="block w-full text-center px-4 py-2.5 rounded-md border border-[color:var(--color-border)] text-sm text-[color:var(--color-text)] hover:bg-[color:var(--color-surface)] transition-colors"
+                >
+                  Wypróbuj demo
+                </Link>
+                <ul className="space-y-2.5 text-sm">
+                  {[
+                    'AI generuje scenariusze na żądanie',
+                    'Live preview w przeglądarce',
+                    'Dashboard CISO z podglądem live',
+                    'Raport NIS2 Art. 21(g) — PDF jednym kliknięciem',
+                    'Wsparcie e-mail',
+                  ].map((f) => (
+                    <li key={f} className="flex items-start gap-3 text-[color:var(--color-muted)]">
+                      <Check className="w-4 h-4 text-[color:var(--color-accent)] shrink-0 mt-0.5" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              {/* Pro */}
+              <motion.div variants={fadeUp} whileHover={{ y: -6, transition: { type: 'spring', stiffness: 400, damping: 20 } }} className="rounded-xl border-2 border-[color:var(--color-accent)] bg-[color:var(--color-bg)] p-8 space-y-6 relative shadow-xl shadow-[color:var(--color-accent)]/10">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <span className="px-4 py-1.5 rounded-full bg-[color:var(--color-accent)] text-[color:var(--color-bg)] text-xs font-semibold tracking-wide">
+                    Najpopularniejszy
+                  </span>
+                </div>
+                <div className="space-y-1">
+                  <p className="text-xs font-semibold text-[color:var(--color-accent)] uppercase tracking-widest">Pro</p>
+                  <div className="flex items-baseline gap-1.5 pt-1">
+                    <span className="text-4xl font-bold text-[color:var(--color-text)]">~400</span>
+                    <span className="text-[color:var(--color-muted)] text-sm">PLN / user / rok</span>
+                  </div>
+                  <p className="text-xs text-[color:var(--color-muted)]">orientacyjnie · netto + VAT 23%</p>
+                </div>
+                <Link
+                  href="/generate"
+                  className="block w-full text-center px-4 py-2.5 rounded-md bg-[color:var(--color-accent)] text-[color:var(--color-bg)] text-sm font-medium hover:bg-[color:var(--color-accent-hover)] transition-colors btn-glow"
+                >
+                  Umów pilota
+                </Link>
+                <ul className="space-y-2.5 text-sm">
+                  {[
+                    'Wszystko z Basic',
+                    'Spear phishing — scenariusze per pracownik',
+                    'Analytics — trend phish-prone % per dział',
+                    'Gamifikacja — quizy, punkty, osiągnięcia',
+                    'Wiele kampanii równocześnie',
+                    'Wsparcie priorytetowe (SLA 4h)',
+                  ].map((f) => (
+                    <li key={f} className="flex items-start gap-3 text-[color:var(--color-text)]">
+                      <Check className="w-4 h-4 text-[color:var(--color-accent)] shrink-0 mt-0.5" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              {/* Enterprise */}
+              <motion.div variants={fadeUp} whileHover={{ y: -6, transition: { type: 'spring', stiffness: 400, damping: 20 } }} className="rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-bg)] p-8 space-y-6">
+                <div className="space-y-1">
+                  <p className="text-xs font-semibold text-[color:var(--color-muted)] uppercase tracking-widest">Enterprise & MSSP</p>
+                  <div className="flex items-baseline gap-1.5 pt-1">
+                    <span className="text-3xl font-bold text-[color:var(--color-text)]">Custom</span>
+                  </div>
+                  <p className="text-xs text-[color:var(--color-muted)]">powyżej 500 użytkowników · white-label dla partnerów</p>
+                </div>
+                <a
+                  href="mailto:kontakt@cyberdrill.pl"
+                  className="block w-full text-center px-4 py-2.5 rounded-md border border-[color:var(--color-border)] text-sm text-[color:var(--color-text)] hover:bg-[color:var(--color-surface)] transition-colors"
+                >
+                  Porozmawiajmy
+                </a>
+                <ul className="space-y-2.5 text-sm">
+                  {[
+                    'Wszystko z Pro',
+                    'White-label dla MSSP i integratorów',
+                    'Ekspert OT onboarding',
+                    'Integracja z Active Directory',
+                    'Revenue share dla partnerów (np. Seargin)',
+                    'SLA 1h · wsparcie 24/7',
+                  ].map((f) => (
+                    <li key={f} className="flex items-start gap-3 text-[color:var(--color-muted)]">
+                      <Check className="w-4 h-4 text-[color:var(--color-accent)] shrink-0 mt-0.5" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-center text-xs text-[color:var(--color-muted)] mt-8"
+            >
+              Kontrakt roczny: rabat 15%. Pilot bezpłatny dla pierwszych 3 firm — skontaktuj się.
+            </motion.p>
+          </div>
+        </section>
+
         {/* ── CTA banner ── */}
         <section className="max-w-7xl mx-auto px-6 pb-20">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.65, ease }}
             className="rounded-xl border border-[color:var(--color-accent)] bg-[color:var(--color-accent)]/5 p-10 text-center space-y-6 cta-border-glow"
           >
