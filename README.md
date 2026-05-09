@@ -1,5 +1,7 @@
 # CyberDrill
 
+**Live demo:** https://cyberdrill-rho.vercel.app/ · **Kod:** https://github.com/JachB/CyberDrill
+
 > Phishing który wygląda jak prawdziwy atak. Bo nim jest.
 
 CyberDrill to platforma symulacji ataków phishingowych dedykowana firmom przemysłowym (aerospace, pharma, energy, manufacturing, fintech). AI generuje spersonalizowane scenariusze pod konkretną branżę i rolę zawodową — w terminologii inżyniera OT, nie generycznego korpomaila. Po kliknięciu pracownik trafia na sekwencyjną edukację z annotowanym overlayem maila, quizem i gamifikacją. CISO widzi wyniki w czasie rzeczywistym i eksportuje raport zgodności **NIS2 Art. 21.2(g)** jednym kliknięciem.
@@ -26,7 +28,7 @@ AI (Gemini Flash) generuje unikalny phishing realistyczny dla konkretnej branży
 
 ## Live demo
 
-> **Vercel:** _link po deployu_
+> **Vercel:** https://cyberdrill-rho.vercel.app/
 
 Lokalnie (~3 min setup):
 
