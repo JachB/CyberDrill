@@ -67,8 +67,10 @@ graph LR
   U -->|click CTA| TRACK[api/track]
   TRACK -->|UPDATE clicked_at| DB
   TRACK -->|302| PHISHED[phished - overlay + quiz]
-  DB -.->|Realtime| FEED[LiveFeed dashboard]
-  DASH[Dashboard CISO] --> PDF[NIS2 PDF Art.21.2g]
+  CISO[CISO] --> DASH[Dashboard CISO]
+  DB -->|SELECT campaigns| DASH
+  DB -.->|Realtime| DASH
+  DASH --> PDF[NIS2 PDF Art.21.2g]
 ```
 
 ### Przepływ danych — sekwencja
@@ -77,26 +79,27 @@ graph LR
 sequenceDiagram
   participant U as Pracownik
   participant FE as Frontend
-  participant API as /api/generate
+  participant GEN as /api/generate
+  participant TRK as /api/track
   participant AI as Gemini Flash
   participant DB as Supabase
 
   U->>FE: wybór branży + roli
-  FE->>API: POST {industry, role}
-  API->>AI: generateContentStream(prompt)
-  AI-->>API: text chunks (streaming)
-  API-->>FE: SSE events (META, BODY, INDICATOR, QUIZ, EDU)
+  FE->>GEN: POST {industry, role}
+  GEN->>AI: generateContentStream(prompt)
+  AI-->>GEN: text chunks (streaming)
+  GEN-->>FE: SSE events (META, BODY, INDICATOR, QUIZ, EDU)
   FE->>FE: render inkrementalny — typing effect
-  API->>DB: INSERT campaign(token, scenario_json)
-  API-->>FE: SSE done(token)
+  GEN->>DB: INSERT campaign(token, scenario_json)
+  GEN-->>FE: SSE done(token)
   U->>FE: klik CTA w podglądzie maila
-  FE->>API: GET /api/track?token=...
-  API->>DB: UPDATE clicked_at
-  API-->>U: 302 → /phished?token=...
+  FE->>TRK: GET /api/track?token=...
+  TRK->>DB: UPDATE clicked_at
+  TRK-->>U: 302 → /phished?token=...
   U->>FE: annotated overlay + quiz + lekcja
   U->>FE: klik "Zgłoś phishing"
-  FE->>API: GET /api/track?token=...&action=report
-  API->>DB: UPDATE reported_at, status='reported'
+  FE->>TRK: GET /api/track?token=...&action=report
+  TRK->>DB: UPDATE reported_at, status='reported'
   DB-->>FE: Realtime broadcast → LiveFeed
 ```
 
